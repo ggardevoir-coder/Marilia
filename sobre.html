@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós | Marília Contabilidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2d9d5a64f.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Estilos exclusivos da página Sobre Nós */
+    .about-page {
+      --about-wine: #650f25;
+      --about-wine-dark: #310711;
+      --about-gold: #e7c77f;
+      --about-cream: #f8f5f1;
+      --about-ink: #30252a;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--about-ink);
+      background: #fff;
+    }
+    .about-page * { box-sizing: border-box; }
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 94px 22px 88px;
+      color: #fff;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(231,199,127,.13), transparent 35%),
+        linear-gradient(125deg, #26050d 0%, #4b0b1c 55%, #710f2b 100%);
+    }
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      width: 360px; height: 360px;
+      right: -130px; bottom: -230px;
+      border: 1px solid rgba(231,199,127,.28);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(231,199,127,.035), 0 0 0 70px rgba(231,199,127,.025);
+    }
+    .about-wrap { width: min(1120px, 100%); margin: 0 auto; }
+    .about-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin: 0 0 18px; color: var(--about-gold);
+      font-size: 12px; font-weight: 700; letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .about-eyebrow::before, .about-eyebrow::after {
+      content: ""; width: 27px; height: 1px; background: currentColor; opacity: .8;
+    }
+    .about-hero h1 {
+      max-width: 850px; margin: 0 auto 20px;
+      color: #f1d99f; font: 600 clamp(42px, 6vw, 68px)/1.02 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-hero p {
+      max-width: 720px; margin: 0 auto;
+      color: #f5e9e7; font-size: 17px; line-height: 1.8;
+    }
+    .about-story { padding: 82px 22px; background: #fff; }
+    .about-story-grid {
+      display: grid; grid-template-columns: .85fr 1.15fr;
+      gap: 66px; align-items: center;
+    }
+    .about-year-card {
+      min-height: 330px; padding: 42px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      position: relative; overflow: hidden; border-radius: 18px;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(231,199,127,.24), transparent 30%),
+        linear-gradient(145deg, #3a0915, #74152d);
+      box-shadow: 0 20px 45px rgba(56,8,22,.16);
+    }
+    .about-year-card::before {
+      content: "MC"; position: absolute; top: 22px; right: 28px;
+      color: rgba(255,255,255,.09); font: 600 115px 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-year {
+      color: var(--about-gold); font: 600 76px/.95 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-year-label {
+      margin-top: 13px; color: #fff; font-size: 13px;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .about-story-copy .about-eyebrow { color: #8b2940; }
+    .about-story-copy h2, .about-section-heading h2 {
+      margin: 0 0 20px; color: #4a1020;
+      font: 600 clamp(34px, 4vw, 46px)/1.08 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-story-copy p {
+      margin: 0 0 15px; color: #62565a; font-size: 15px; line-height: 1.9;
+    }
+    .about-story-copy strong { color: #4f1324; }
+    .about-values { padding: 82px 22px 90px; background: var(--about-cream); }
+    .about-section-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+    .about-section-heading .about-eyebrow { color: #8b2940; }
+    .about-section-heading p { margin: 0; color: #71666a; font-size: 15px; line-height: 1.8; }
+    .about-pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .about-pillar {
+      padding: 30px 28px; background: #fff; border: 1px solid #eee5e2;
+      border-radius: 14px; box-shadow: 0 8px 24px rgba(57,19,30,.045);
+    }
+    .about-icon {
+      width: 48px; height: 48px; display: grid; place-items: center;
+      margin-bottom: 20px; border-radius: 13px;
+      color: #76182f; background: #f5e9e9; font-size: 19px;
+    }
+    .about-pillar h3 {
+      margin: 0 0 10px; color: #4a1020;
+      font: 600 27px 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-pillar p { margin: 0; color: #6e6266; font-size: 14px; line-height: 1.8; }
+    .about-values-list { padding: 80px 22px; background: #fff; }
+    .about-values-list .about-section-heading { margin-bottom: 34px; }
+    .about-value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .about-value-item {
+      display: flex; gap: 15px; align-items: flex-start;
+      padding: 20px 22px; border: 1px solid #eee7e4; border-radius: 12px;
+      background: #fff;
+    }
+    .about-value-item i { margin-top: 4px; color: #9b5363; font-size: 16px; }
+    .about-value-item h3 { margin: 0 0 5px; color: #4a1020; font-size: 15px; }
+    .about-value-item p { margin: 0; color: #74696c; font-size: 13px; line-height: 1.7; }
+    .about-cta {
+      padding: 58px 22px; color: #fff; text-align: center;
+      background: linear-gradient(120deg, #3a0915, #681329);
+    }
+    .about-cta h2 {
+      margin: 0 0 12px; color: #f1d99f;
+      font: 600 clamp(32px, 4vw, 42px) 'Cormorant Garamond', Georgia, serif;
+    }
+    .about-cta p { margin: 0 auto 24px; max-width: 650px; color: #f3e6e7; line-height: 1.8; }
+    .about-cta a {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 24px; border-radius: 7px;
+      background: #f1d99f; color: #45101e; text-decoration: none;
+      font-size: 14px; font-weight: 700; transition: transform .2s, background .2s;
+    }
+    .about-cta a:hover { transform: translateY(-2px); background: #f7e6b9; }
+    @media (max-width: 760px) {
+      .about-hero { padding: 70px 20px 66px; }
+      .about-hero p { font-size: 15px; }
+      .about-story, .about-values, .about-values-list { padding: 60px 20px; }
+      .about-story-grid { grid-template-columns: 1fr; gap: 34px; }
+      .about-year-card { min-height: 230px; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .about-value-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER ORIGINAL -->
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="https://i.postimg.cc/BnKv7zDN/002.png" alt="Marília Contabilidade">
+      </div>
+
+      <div class="language-switch">
+        <button onclick="changeLanguage('pt')">PT</button>
+        <button onclick="changeLanguage('en')">EN</button>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+        <a href="sobre.html" data-pt="Sobre nós" data-en="About us">Sobre nós</a>
+        <a href="servicos.html" data-pt="Serviços" data-en="Services">Serviços</a>
+        <a href="#" data-pt="Blog" data-en="Blog">Blog</a>
+        <a href="#" data-pt="Contato" data-en="Contact">Contato</a>
+        <a href="https://wa.me/5511966355827?text=Ol%C3%A1%20gostaria%20de%20falar%20com%20a%20MariliaContabil"
+           target="_blank" rel="noopener" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="about-wrap">
+        <div class="about-eyebrow">Marília Contabilidade</div>
+        <h1>Mais do que números, construímos confiança.</h1>
+        <p>Há mais de duas décadas, oferecemos segurança, tranquilidade e soluções contábeis para apoiar empresas e empreendedores em cada etapa de sua jornada.</p>
+      </div>
+    </section>
+
+    <section class="about-story">
+      <div class="about-wrap about-story-grid">
+        <div class="about-year-card" aria-label="Desde 2002">
+          <span class="about-year">2002</span>
+          <span class="about-year-label">Uma história de confiança</span>
+        </div>
+        <div class="about-story-copy">
+          <div class="about-eyebrow">Nossa história</div>
+          <h2>Experiência que acompanha o crescimento do seu negócio.</h2>
+          <p>A <strong>Marília Contabilidade</strong> nasceu em 2002 com o propósito de oferecer muito mais do que serviços contábeis: proporcionar segurança, tranquilidade e soluções que contribuam para o crescimento de empresas e empreendedores.</p>
+          <p>Ao longo de mais de duas décadas de atuação, construímos nossa trajetória com base na ética, na responsabilidade e no compromisso com cada cliente, compreendendo que por trás de cada empresa existem pessoas, histórias, desafios e sonhos.</p>
+          <p>Acreditamos que a contabilidade deve ir além dos números e das obrigações legais. Ela deve ser uma ferramenta estratégica, capaz de transformar informações em decisões mais seguras e oportunidades de crescimento.</p>
+          <p>Unimos <strong>experiência, conhecimento técnico, tecnologia e atendimento humanizado</strong>, oferecendo soluções contábeis, fiscais e empresariais alinhadas às necessidades de cada negócio.</p>
+          <p>Nosso compromisso é construir relacionamentos duradouros, pautados pela transparência, confiança e excelência. <strong>Desde 2002, cuidando dos números para que você possa focar no que realmente importa: o sucesso do seu negócio.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <div class="about-wrap">
+        <div class="about-section-heading">
+          <div class="about-eyebrow">O que nos guia</div>
+          <h2>Nosso propósito em cada parceria.</h2>
+          <p>Princípios que orientam nosso trabalho e a forma como construímos relações com nossos clientes.</p>
+        </div>
+        <div class="about-pillars">
+          <article class="about-pillar">
+            <div class="about-icon"><i class="fas fa-bullseye" aria-hidden="true"></i></div>
+            <h3>Nossa Missão</h3>
+            <p>Oferecer soluções contábeis e empresariais com excelência, ética e responsabilidade, transformando informações em conhecimento estratégico e proporcionando segurança, tranquilidade e suporte para o crescimento sustentável dos nossos clientes.</p>
+          </article>
+          <article class="about-pillar">
+            <div class="about-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
+            <h3>Nossa Visão</h3>
+            <p>Ser reconhecida como uma referência em serviços contábeis pela qualidade, inovação e proximidade com os clientes, evoluindo continuamente para oferecer soluções modernas e estratégicas que contribuam para o sucesso dos negócios.</p>
+          </article>
+          <article class="about-pillar">
+            <div class="about-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+            <h3>Nossos Valores</h3>
+            <p>Ética, transparência, compromisso, excelência profissional, inovação, responsabilidade, confiança, valorização das pessoas e parceria para crescer junto com cada cliente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values-list">
+      <div class="about-wrap">
+        <div class="about-section-heading">
+          <div class="about-eyebrow">Nossos compromissos</div>
+          <h2>Valores que aparecem nas atitudes.</h2>
+          <p>Mais do que palavras, são compromissos presentes em cada atendimento e em cada entrega.</p>
+        </div>
+        <div class="about-value-grid">
+          <article class="about-value-item">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            <div><h3>Ética e transparência</h3><p>Atuamos com integridade, honestidade e clareza em todas as nossas relações, construindo vínculos sólidos e confiáveis.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-user-tie" aria-hidden="true"></i>
+            <div><h3>Compromisso com o cliente</h3><p>Buscamos compreender as necessidades de cada cliente, oferecendo atendimento próximo, personalizado e soluções eficientes.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-award" aria-hidden="true"></i>
+            <div><h3>Excelência profissional</h3><p>Prezamos pela qualidade técnica, precisão das informações e constante atualização dos nossos conhecimentos.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+            <div><h3>Inovação e evolução</h3><p>Acreditamos na tecnologia e na melhoria contínua para tornar os processos mais ágeis, seguros e eficientes.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            <div><h3>Responsabilidade e confiança</h3><p>Assumimos nossos compromissos com seriedade, respeitando prazos, normas e a confidencialidade das informações.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-people-group" aria-hidden="true"></i>
+            <div><h3>Valorização das pessoas</h3><p>Reconhecemos que nosso maior patrimônio são as pessoas e cultivamos relações baseadas no respeito e na colaboração.</p></div>
+          </article>
+          <article class="about-value-item">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+            <div><h3>Parceria e crescimento</h3><p>Acreditamos que o sucesso dos nossos clientes também representa o nosso sucesso e trabalhamos por relações duradouras.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-cta">
+      <div class="about-wrap">
+        <h2>Vamos crescer juntos?</h2>
+        <p>Conte com a Marília Contabilidade para cuidar dos números e apoiar as decisões que fazem seu negócio avançar.</p>
+        <a href="https://wa.me/5511966355827?text=Ol%C3%A1%20gostaria%20de%20falar%20com%20a%20MariliaContabil" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Fale com a nossa equipe
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER ORIGINAL -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="https://i.postimg.cc/BnKv7zDN/002.png" alt="Marília Contabilidade">
+        <p data-pt="Contabilidade com simplicidade, transparência e foco no crescimento."
+           data-en="Accounting with simplicity, transparency and focus on growth.">
+          Contabilidade com simplicidade, transparência e foco no crescimento.
+        </p>
+      </div>
+
+      <div>
+        <h4 data-pt="Navegação" data-en="Navigation">Navegação</h4>
+        <ul>
+          <li><a href="index.html" data-pt="Início" data-en="Home">Início</a></li>
+          <li><a href="sobre.html" data-pt="Sobre nós" data-en="About us">Sobre nós</a></li>
+          <li><a href="servicos.html" data-pt="Serviços" data-en="Services">Serviços</a></li>
+          <li><a href="#" data-pt="Blog" data-en="Blog">Blog</a></li>
+          <li><a href="#" data-pt="Contato" data-en="Contact">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
+        <ul>
+          <li><a href="#" data-pt="Abertura de empresa" data-en="Business opening">Abertura de empresa</a></li>
+          <li><a href="#" data-pt="Contabilidade mensal" data-en="Monthly accounting">Contabilidade mensal</a></li>
+          <li><a href="#" data-pt="Fiscal e tributário" data-en="Tax and fiscal">Fiscal e tributário</a></li>
+          <li><a href="#" data-pt="Departamento pessoal" data-en="Payroll department">Departamento pessoal</a></li>
+          <li><a href="#" data-pt="IRPF" data-en="Income Tax">IRPF</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 data-pt="Contato" data-en="Contact">Contato</h4>
+        <ul>
+          <li>(11) 96635-5827</li>
+          <li>contato@mariliacontabilidade.com.br</li>
+          <li data-pt="São Paulo - SP" data-en="São Paulo - Brazil">São Paulo - SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"
+         data-pt="© 2026 Marília Contabilidade. Todos os direitos reservados."
+         data-en="© 2026 Marília Contabilidade. All rights reserved.">
+      © 2026 Marília Contabilidade. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
